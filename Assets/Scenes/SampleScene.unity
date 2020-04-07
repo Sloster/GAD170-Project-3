@@ -9010,13 +9010,9 @@ MonoBehaviour:
     OnUsedWhileHeld:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
     OnUsedWhileNotHeld:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
 --- !u!65 &189737050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15915,13 +15911,9 @@ MonoBehaviour:
     OnUsedWhileHeld:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
     OnUsedWhileNotHeld:
       m_PersistentCalls:
         m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
 --- !u!65 &815924873
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31763,7 +31755,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19530
+  m_Name: pb_Mesh15082
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37227,7 +37219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1513336829
 Transform:
   m_ObjectHideFlags: 0
@@ -44507,6 +44499,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1091769021}
+    - target: {fileID: 8884253813279567210, guid: 215d4b99c899a26458c6e210e6314e56,
+        type: 3}
+      propertyPath: m_SelectedVertices.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8884253813279567210, guid: 215d4b99c899a26458c6e210e6314e56,
         type: 3}
       propertyPath: m_Tangents.Array.data[8].x

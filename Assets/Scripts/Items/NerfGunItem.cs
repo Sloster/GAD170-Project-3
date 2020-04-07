@@ -12,20 +12,35 @@ public class NerfGunItem : InteractiveItem
     public float fireRate = 1;
     public float launchForce = 10;
     protected float fireRateCounter;
+    float timer;
+
+    AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     protected void Update()
     {
+        timer += Time.deltaTime;
     }
 
     public override void OnUse()
     {
         base.OnUse();
-
-        //TODO: we need to determine if we can fire and if so, make the thing
+        FireNow();
     }
 
     public void FireNow()
     {
-        //TODO: this is where we would actually create the thing and get it on its way
+        if (timer >= fireRate)
+        {
+        audioSource.Play();
+        GameObject dart = Instantiate(nerfDartPrefab, nerfDartSpawnLocation.position, Quaternion.identity);
+        Rigidbody rb = dart.GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * launchForce);
+        timer = 0;
+        }
     }
 }

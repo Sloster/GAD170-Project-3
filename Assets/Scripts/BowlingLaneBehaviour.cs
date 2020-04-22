@@ -16,9 +16,16 @@ public class BowlingLaneBehaviour : MonoBehaviour
     public GameObject bowlingBall;
     public Transform[] pinSpawnLocations;
     public Transform defaultBallLocation;
-    
-    List<GameObject> pins = new List<GameObject>();
+    int score;
 
+    List<GameObject> pins = new List<GameObject>();
+    BowlingCheckListItem bowlingCheckListItem;
+
+    void Start()
+    {
+        bowlingCheckListItem = FindObjectOfType<BowlingCheckListItem>();
+        bowlingCheckListItem.MaxScore = pinSpawnLocations.Length;
+    }
     [ContextMenu("InitialiseRound")]
     public void InitialiseRound()
     {
@@ -33,8 +40,6 @@ public class BowlingLaneBehaviour : MonoBehaviour
     {
         //bowlingBall.transform.position = defaultBallLocation.transform.position
     }
-
-    int score;
 
     [ContextMenu("TalleyScore")]
     public void TalleyScore()
@@ -51,8 +56,10 @@ public class BowlingLaneBehaviour : MonoBehaviour
             }
         }
 
-        print(score);
+        bowlingCheckListItem.Score = score;
+        bowlingCheckListItem.OnBowlingScored();
     }
+
 
     [ContextMenu("ResetRack")]
     public void ResetRack()
@@ -63,9 +70,12 @@ public class BowlingLaneBehaviour : MonoBehaviour
             pins[i].transform.rotation = pinSpawnLocations[i].transform.rotation;
         }
 
-    bowlingBall.transform.position = defaultBallLocation.transform.position;
-    bowlingBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
-    bowlingBall.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        bowlingBall.transform.position = defaultBallLocation.transform.position;
+        bowlingBall.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        bowlingBall.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+    
+        bowlingCheckListItem.Score =  0;
+        bowlingCheckListItem.OnBowlingScored();
     }
 
     protected void Update()
